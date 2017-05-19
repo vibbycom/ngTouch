@@ -9,7 +9,7 @@ angular.module("ngTouch", [])
             function onTouchStart(event) {
                 var method = $element.attr("ng-touchstart");
                 $scope.$event = event;
-                $scope.$apply(method);
+                $scope.$applyAsync(method);
             }
 
         }]
@@ -28,7 +28,7 @@ angular.module("ngTouch", [])
             function onTouchMove(event) {
                 var method = $element.attr("ng-touchmove");
                 $scope.$event = event;
-                $scope.$apply(method);
+                $scope.$applyAsync(method);
             }
             function onTouchEnd(event) {
                 event.preventDefault();
@@ -47,7 +47,7 @@ angular.module("ngTouch", [])
             function onTouchEnd(event) {
                 var method = $element.attr("ng-touchend");
                 $scope.$event = event;
-                $scope.$apply(method);
+                $scope.$applyAsync(method);
             }
 
         }]
@@ -71,7 +71,7 @@ angular.module("ngTouch", [])
                 $element.unbind("touchend", onTouchEnd);
                 if (!moved) {
                     var method = $element.attr("ng-tap");
-                    $scope.$apply(method);
+                    $scope.$applyAsync(method);
                 }
             }
 
